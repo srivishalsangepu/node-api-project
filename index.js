@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import routes from "./src/routes/testRoute";
+import {check_duplicate_in_array} from 'find-duplicate-array-elements';
+
 
 // swagger.js
 const swaggerJsdoc = require("swagger-jsdoc");
@@ -54,5 +56,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
+  let arr = [1, 1, 2, 2, 3, 3, 4, 5, 6, 1];
+  console.log(check_duplicate_in_array(arr));
   console.log(`Your server is running on PORT ${PORT}`);
 });
